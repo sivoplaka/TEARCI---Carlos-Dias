@@ -1,6 +1,8 @@
 import time
 import os
 import subprocess
+import qrcode
+import pygame
 from threading import Thread
 import tkinter as tk
 from tkinter import messagebox
@@ -148,23 +150,18 @@ def schedule():
         print("Schedule list: \n")
         file_path=open("schedule.txt", "r")
         print(file_path.read())
-        while True: #Loop until it's true
-            back = input("S>>")
-            if back == "back":
-                schedule()
-                break #End loop
+        schedule
                 
     if choice_schedule == "help": #-------Command for help
-        print("Only 'back' command available.")
+        print("Only 'back', 'write', 'delete' commands available.")
     
     #------If choice is "write"    
     if choice_schedule.lower() == "write":
         while True:
-            date = input("Choose a date [dd/mm/yyyy]: \n")
-            task = input("What is the task: \n").lower()
+            task = input("What is the task: \n")
             try:
                 with open('schedule.txt', 'a+') as file:
-                    file.write(f"{date} - {task}\n")
+                    file.write(f"{task}\n")
                     file.flush()
                     print("Task added successfully!")
             except Exception as e:
@@ -281,20 +278,7 @@ def alarm():
     qr.add_data(data)  # Add URL data to the QR code
     qr.make(fit=True)
     qr.print_ascii(invert=False) # Print the QR code as ASCII text to be displayed
-    while True:
-        back = input("A>")
-        if back == "pmdr": 
-            pomodoro()
-            break
-        elif back == "sch":
-            schedule()
-            break
-        elif back == "cld":
-            calendar()
-            break
-        elif back == "end":
-            print("Ok, bye!")
-            exit()
+    menu()
             
             
 def pomodoro():
@@ -304,6 +288,15 @@ def pomodoro():
     study_time = int(input("Enter study time (minutes): \n>")) * 60
     break_time = int(input("Enter break time (minutes): \n>")) * 60
     total_cycles = int(input("Enter number of cycles: \n>"))
+    
+    with open('schedule.txt', 'r') as file:
+        lines = file.readlines()  # Read all lines from the file
+
+    # Display lines and ask for a choice
+    for index, line in enumerate(lines):
+        print(f"{index + 1}: {line.strip()}")
+
+    chosen_line = int(input("Enter the number of the line you want to select: ")) - 1
    
     #Detect if OBS is running
     obs_mode = detect_obs()
@@ -314,46 +307,47 @@ def pomodoro():
         print("OBS not detected. Proceeding normally.")
     disable_notifications()
     current_cycle = 1
+    
     while current_cycle <= total_cycles:
-        print(f"Cycle {current_cycle}/{total_cycles}")
-        
-        
-        # Start study timer
-        while True:
-            study = input("Type 'study' to begin or 'cancel' to return to the menu: \n>").strip().lower()
-            if study == "study":
-                name_cycle = "Study"
-                countdown_timer(study_time, "Study session complete! Time for a break.", obs_mode, current_cycle, total_cycles, name_cycle)
-                break
-            elif study == "back":
-                print("Returning to menu...")
-                enable_notifications()
-                write_to_obs_timer_file("00:00", 0, 0, "Cycle")
-                menu()
-                break
+       print(f"{lines[chosen_line].strip()} \nCycle {current_cycle}/{total_cycles}")
+       
+           
+       while True:
+           study = input("Type 'study' to begin or 'cancel' to return to the menu: \n>").strip().lower()
+           if study == "study":
+               name_cycle = "Study"
+               countdown_timer(study_time, "Study session complete! Time for a break.", obs_mode, current_cycle, total_cycles, name_cycle)
+               break
+           elif study == "cancel":
+               print("Returning to menu...")
+               enable_notifications()
+               write_to_obs_timer_file("00:00", 0, 0, "Cycle")
+               menu()
+               break
         
         # Start break timer
-        if current_cycle < total_cycles:
-            while True:
-                break_input = input("Type 'break' to begin or 'cancel' to return to the menu: \n>").strip().lower()
-                if break_input == "break":
-                    name_cycle = "Break"
-                    countdown_timer(break_time, "Break over! Back to studying.", obs_mode, current_cycle, total_cycles, name_cycle)
-                    break
-                elif break_input == "back":
-                    print("Returning to menu...")
-                    enable_notifications()
-                    write_to_obs_timer_file("00:00", 0, 0, "Cycle")
-                    menu()
-                    break
+       if current_cycle < total_cycles:
+           while True:
+               break_input = input("Type 'break' to begin or 'cancel' to return to the menu: \n>").strip().lower()
+               if break_input == "break":
+                   name_cycle = "Break"
+                   countdown_timer(break_time, "Break over! Back to studying.", obs_mode, current_cycle, total_cycles, name_cycle)
+                   break
+               elif break_input == "cancel":
+                   print("Returning to menu...")
+                   enable_notifications()
+                   write_to_obs_timer_file("00:00", 0, 0, "Cycle")
+                   menu()
+                   break
                     
-        current_cycle += 1
+       current_cycle += 1
     
     print("Pomodoro session complete! Great job!")
+    
     enable_notifications()
     if obs_mode:
-        write_to_obs_timer_file("00:00", 0, 0, "Cycle")
-
+       write_to_obs_timer_file("00:00", 0, 0, "Cycle")
+    menu()
         
 def calendar():
     print("W.I.P.")
