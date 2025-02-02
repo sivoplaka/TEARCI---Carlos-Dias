@@ -1,1 +1,1 @@
-Elaborado juntamente com mais dois colegas (Gustavo e Diogo) pelo Discord.
+Elaborado juntamente com mais dois colegas (Gustavo e Miguel) pelo Discord.
