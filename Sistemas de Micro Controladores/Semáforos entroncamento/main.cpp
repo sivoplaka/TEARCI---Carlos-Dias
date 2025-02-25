@@ -24,7 +24,7 @@ void setup() {
   pinMode(S2R, OUTPUT);
   pinMode(S2Y, OUTPUT);
   pinMode(S2G, OUTPUT);
-  
+  Serial.begin(9600);
 }
 
 void loop() {
