@@ -7,4 +7,5 @@ Componentes:
 Experiência adquirida e em progresso:
 ```
 -Melhoramento no uso de Switch Case numa máquina de estados;
+-Uso de eventos síncronos exclusivamente;
 ```
