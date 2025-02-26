@@ -1,4 +1,5 @@
 Trabalho elaborado no âmbito da UFCD de Sistemas de Micro Controladores
+
 Componentes:
 ```
 -6x LEDs (2x Vermelhos, 2x Amarelos, 2x Verdes);
