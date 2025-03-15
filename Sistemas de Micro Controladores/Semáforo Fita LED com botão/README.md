@@ -11,5 +11,5 @@ Componentes:
 Experiência adquirida e em progresso:
 ```
 -Soldadura (para soldar +5V e respetivos 0V(R,G,B));
-Tive de refazer o trabalho para um objeto de trabalho mais eficaz
+Tive de refazer para um objeto de trabalho mais eficaz
 ```
