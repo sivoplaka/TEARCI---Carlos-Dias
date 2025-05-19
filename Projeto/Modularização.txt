@@ -1,0 +1,5 @@
+	Modularização refere-se à prática de dividir um sistema ou projeto em partes menores e independentes, chamados módulos, o que permite um foco maior no desenvolvimento de funções e procedimentos para executar os mesmos. Pode-se dizer que é uma ferramenta de apoio em torno da facilidade, eficiência, sustentabilidade e raciocínio, usada em muitas áreas, tais como:
+	-Programação;
+	-Contrução Cívil;
+	-Arquitetura;
+	-Entre outros.
