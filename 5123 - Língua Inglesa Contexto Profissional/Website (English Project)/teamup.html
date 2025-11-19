@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos Dias's Portfolio</title>
+	<link rel="icon" type="image/x-icon" href="img/icon.ico">
+    <style>
+        body, html {
+			font-family: courier;
+			margin: 0;
+			padding: 0;
+			height: 100%; /* Ensure full height of the viewport */
+			overflow-x: auto; /* Prevent unnecessary scrolling on the body */
+			background-image: url('img/background.jpg');
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-attachment: fixed;
+			position: relative;
+			box-sizing: border-box;
+			flex-grow: 1; /* Ensure content area grows to fill available space */
+			min-height: 0; /* Prevents the area from being larger than necessary */
+			overflow-y: auto; /* Enable vertical scrolling when content overflows */
+		}
+		
+		
+        .banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #008B8B;
+            color: white;
+            padding: 20px;
+            font-size: 35px;
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+
+        .banner img {
+            max-height: 80px;
+            margin-right: 20px;
+        }
+
+        .banner-text {
+            flex: 1;
+            text-align: center;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+
+        .menu a {
+            padding: 14px 20px;
+            text-decoration: none;
+            color: white;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .menu a:hover {
+            background-color: #575757;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: auto;
+            margin: auto;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+            border-color: black;
+        }
+
+        .content {
+			padding: 10px;
+			text-align: center;
+			font-size: 18px;
+			overflow: auto; /* Enable vertical scrolling when content overflows */
+		}
+		
+        /* Modal Background */
+        .modal-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background: white;
+            border-radius: 8px;
+            width: 80%;
+            height: 80%;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden; /* Ensures the iframe doesn't overflow */
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            overflow-y: auto; /* Enables scrolling inside the iframe */
+        }
+
+        /* Close Button */
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .close-button:hover {
+            background-color: #575757;
+        }
+		.footer {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			background-color: #333;
+			color: white;
+			text-align: center;
+			padding: 10px 0;
+			font-size: 14px;
+			box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+		}
+
+    </style>
+</head>
+<body>
+
+    <div class="banner">
+        <img src="img/automation.png" alt="Banner Image">
+        <div class="banner-text">
+            Carlos Dias's Portfolio
+        </div>
+    </div>
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="tools.html">Tools</a>
+        <a href="teamup.html">Team Up</a>
+        <a href="aboutme.html">About Me</a>
+    </div>
+
+    <div class="content">
+        <h1>Team Up</h1>
+        <hr>
+        <pre>All the collaborations goes here.</pre>
+        <br>
+        <a href="div_pages/smartbot.html" onclick="loadPage(event, 'div_pages/smartbot.html')">SmartBot: The Intelligent School Assistant</a>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-background" id="modal">
+        <div class="modal-content">
+            <iframe id="iframe-content" src=""></iframe>
+            <button class="close-button" onclick="closeModal()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function loadPage(event, page) {
+            event.preventDefault(); // Prevent default link behavior
+
+            const modal = document.getElementById("modal");
+            const iframe = document.getElementById("iframe-content");
+
+            iframe.src = page; // Load the page into the iframe
+            modal.style.display = "flex"; // Show the modal
+        }
+
+        function closeModal() {
+            const modal = document.getElementById("modal");
+            const iframe = document.getElementById("iframe-content");
+
+            modal.style.display = "none"; // Hide the modal
+            iframe.src = ""; // Clear the iframe content
+        }
+    </script>
+	<footer class="footer">
+        ©2025 Carlos Dias
+    </footer>
+	<script>
+		document.addEventListener('contextmenu', event => event.preventDefault());
+	</script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos Dias's Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="img/icon.ico">
+    <style>
+        body, html {
+            font-family: courier;
+            margin: 0;
+            padding: 0;
+            height: 100%; 
+            overflow-x: auto; 
+            background-image: url('img/background.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            box-sizing: border-box;
+        }
+
+        .banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #008B8B;
+            color: white;
+            padding: 20px;
+            font-size: 35px;
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+
+        .banner img {
+            max-height: 80px;
+            margin-right: 20px;
+        }
+
+        .banner-text {
+            flex: 1;
+            text-align: center;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+
+        .menu a {
+            padding: 14px 20px;
+            text-decoration: none;
+            color: white;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .menu a:hover {
+            background-color: #575757;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: auto;
+            margin: auto;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+            border-color: black;
+        }
+
+        .content {
+            padding: 10px;
+            text-align: center;
+            font-size: 18px;
+            overflow-y: auto;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 14px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <img src="img/automation.png" alt="Banner Image">
+        <div class="banner-text">
+            Carlos Dias's Portfolio
+        </div>
+    </div>
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="tools.html">Tools</a>
+        <a href="teamup.html">Team Up</a>
+        <a href="aboutme.html">About Me</a>
+    </div>
+
+    <div class="content">
+        <h1>About Me</h1>
+        <hr>
+        <pre>My name is Carlos Dias, I’m 28 years old, 
+and I’m currently studying Automation, Robotics, and Industrial Control.
+I worked at APTIV (formerly Delphi) for about nine years on rotating shifts 
+but had to leave due to sleep problems. The following six months were 
+dedicated to correcting my sleep cycle and reflecting deeply on what I wanted 
+for my future. It was during this period that I decided to enroll in this 
+specific course, and I was genuinely excited about the new direction.
+
+After experiencing some depression and self-doubt during those months, 
+I finally found a sense of purpose. For the first time in a long while, 
+I felt motivated to do something meaningful for myself. Now, every day 
+is a challenge, but it’s one I embrace earnestly.
+
+I wake up, go to school, feel excited about what I’m learning, come home, 
+study, and go to bed. I’ve come to truly appreciate this routine—it’s 
+something I missed and value deeply.
+        </pre>
+    </div>
+    <footer class="footer">
+        ©2025 Carlos Dias
+    </footer>
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Carlos Dias's Portfolio</title>
+	<link rel="icon" type="image/x-icon" href="img/icon.ico">
+    <style>
+		body, html {
+			font-family: courier;
+			margin: 0;
+			padding: 0;
+			height: 100%; /* Ensure full height of the viewport */
+			overflow-x: auto; /* Prevent unnecessary scrolling on the body */
+			background-image: url('img/background.jpg');
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-attachment: fixed;
+			position: relative;
+			box-sizing: border-box;
+			flex-grow: 1; /* Ensure content area grows to fill available space */
+			min-height: 0; /* Prevents the area from being larger than necessary */
+			overflow-y: auto; /* Enable vertical scrolling when content overflows */
+		}
+
+        .banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #008B8B;
+            color: white;
+            padding: 20px;
+            font-size: 35px;
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+
+        .banner img {
+            max-height: 80px;
+            margin-right: 20px;
+        }
+
+        .banner-text {
+            flex: 1;
+            text-align: center;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+
+        .menu a {
+            padding: 14px 20px;
+            text-decoration: none;
+            color: white;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .menu a:hover {
+            background-color: #575757;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: auto;
+            margin: auto;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+            border-color: black;
+        }
+
+        .content {
+			padding: 10px;
+			text-align: center;
+			font-size: 18px;
+			overflow-y: auto; /* Enable vertical scrolling when content overflows */
+		}
+		.footer {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			background-color: #333;
+			color: white;
+			text-align: center;
+			padding: 10px 0;
+			font-size: 14px;
+			box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+		}
+    </style>
+</head>
+<body>
+	<div class="banner">
+			<img src="img/automation.png" alt="Banner Image">
+	<div class="banner-text">
+			Carlos Dias's Portfolio
+		</div>
+	</div>
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="tools.html">Tools</a>
+        <a href="teamup.html">Team Up</a>
+        <a href="aboutme.html">About Me</a>
+    </div>
+
+    <div class="content">
+        <h1>Updates</h1>
+		<hr>
+        <pre>List of W.I.P. and finished projects.
+		<p></p>
+I do study livestreams quite often. 
+Check it above.
+		</pre>
+		<iframe
+			width="560"
+			height="315"
+			src="https://www.youtube.com/embed/videoseries?list=PLZgklK_YZZM0fSvw9XME14nrfs9glb-A0"
+			frameborder="0"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+			allowfullscreen>
+		</iframe>
+    </div>
+	<footer class="footer">
+        ©2025 Carlos Dias
+    </footer>
+	<script>
+		document.addEventListener('contextmenu', event => event.preventDefault());
+	</script>
+</body>
+</html>

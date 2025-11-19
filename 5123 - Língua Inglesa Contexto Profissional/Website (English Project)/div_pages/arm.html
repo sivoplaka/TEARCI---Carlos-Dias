@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotic Arm Project</title>
+    <style>
+        body, html {
+			font-family: courier;
+			text-align: center;
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			background-image: url('img/background.jpg');
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-attachment: fixed;
+			position: relative;
+			box-sizing: border-box;
+			flex-grow: 1; 
+			min-height: 0;
+			overflow-y: auto;
+			overflow-x: auto;
+		}
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: auto;
+            margin: auto;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+            border-color: black;
+        }
+
+        .content {
+            display: none;
+            margin: 20px auto;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+		
+		.limited-image {
+			max-width: 100%;
+			max-height: 200px;
+			width: auto;
+			height: auto;
+			display: block;
+			margin: 10px auto;
+			border-radius: 6px;
+		}
+    </style>
+</head>
+<body>
+    <h1>Automated Robotic Arm Project</h1>
+    <button id="toggleIntroButton">Intro</button>
+    <div class="content" id="intro" style="display: none;">
+        <pre>
+The Automated Robotic Arm Project is focused on building a robotic arm that can perform 
+a variety of tasks autonomously, such as picking, placing, and assembling objects. The idea 
+originated in early 2025 and aims to create a low-cost, open-source robotic arm suitable 
+for educational purposes and small-scale automation tasks.
+
+We use a combination of motors, sensors, and a microcontroller to control the arm's movement. 
+The goal is to achieve precise motion control and adapt to various work environments.
+        </pre>
+    </div>
+    
+    <p></p>
+    <button id="toggleDesignButton">The Design</button>
+    <div class="content" id="design" style="display: none;">
+        <pre>
+The design of the robotic arm incorporates a 5-DOF (Degrees of Freedom) structure, which 
+allows it to move in multiple directions with high precision. The arm uses a combination of 
+servo motors and stepper motors for different joints. The control system is based on an Arduino 
+or Raspberry Pi, which communicates with the motors and sensors.
+
+The design also includes a gripper mechanism that can pick up small objects with ease.
+Below is an image of the initial design prototype.
+<img src="img/robot-arm-design.jpg" alt="Robotic Arm Design" class="limited-image">
+        </pre>
+    </div>
+
+    <p></p>
+    <button id="toggleFunctionalityButton">Arm Functionality</button>
+    <div class="content" id="functionality" style="display: none;">
+        <pre>
+The robotic arm is programmed to execute specific tasks autonomously. These tasks include:
+1. Object Grasping: The gripper can pick up and hold objects securely.
+2. Object Placement: The arm can place objects in precise locations.
+3. Automated Assembly: The arm can be programmed to assemble components based on a defined sequence.
+
+The functionality is powered by a series of sensors that help the arm to detect objects, 
+measure distances, and avoid obstacles. The movements are controlled through an algorithm 
+that allows for smooth transitions and precise actions.
+        </pre>
+    </div>
+
+    <p></p>
+    <button id="toggleFuturePlansButton">Future Developments</button>
+    <div class="content" id="future" style="display: none;">
+        <pre>
+Future developments for the robotic arm project include:
+1. Integration with AI: We plan to implement AI algorithms that will enable the arm to 
+    learn new tasks and adapt to different environments.
+2. Enhanced Precision: Using more advanced sensors and actuators to improve the precision 
+    of the arm's movements.
+3. Remote Control: A wireless control system will be introduced, allowing users to control 
+    the arm from anywhere via an app or web interface.
+        
+Stay tuned for more updates!
+        </pre>
+    </div>
+
+    <script>
+        function toggleContent(buttonId, contentId, showText, hideText) {
+            const button = document.getElementById(buttonId);
+            const content = document.getElementById(contentId);
+
+            button.addEventListener('click', () => {
+                if (content.style.display === 'none' || content.style.display === '') {
+                    content.style.display = 'block';
+                    button.textContent = hideText;
+                } else {
+                    content.style.display = 'none';
+                    button.textContent = showText;
+                }
+            });
+        }
+
+        toggleContent('toggleIntroButton', 'intro', 'Intro', 'Hide Intro');
+        toggleContent('toggleDesignButton', 'design', 'The Design', 'Hide Design');
+        toggleContent('toggleFunctionalityButton', 'functionality', 'Arm Functionality', 'Hide Functionality');
+        toggleContent('toggleFuturePlansButton', 'future', 'Future Developments', 'Hide Future Developments');
+        
+        document.addEventListener('contextmenu', event => event.preventDefault());
+    </script>
+</body>
+</html>

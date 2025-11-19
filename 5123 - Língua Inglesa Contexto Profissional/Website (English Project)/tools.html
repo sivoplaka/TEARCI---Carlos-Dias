@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carlos Dias's Portfolio</title>
+	<link rel="icon" type="image/x-icon" href="img/icon.ico">
+    <style>
+        body, html {
+			font-family: courier;
+			margin: 0;
+			padding: 0;
+			height: 100%; 
+			overflow-x: auto; 
+			background-image: url('img/background.jpg');
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-attachment: fixed;
+			position: relative;
+			box-sizing: border-box;
+			flex-grow: 1; 
+			min-height: 0;
+			overflow-y: auto;
+		}
+
+        .banner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #008B8B;
+            color: white;
+            padding: 20px;
+            font-size: 35px;
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+
+        .banner img {
+            max-height: 80px;
+            margin-right: 20px;
+        }
+
+        .banner-text {
+            flex: 1;
+            text-align: center;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            box-sizing: border-box;
+            max-width: 100%;
+        }
+
+        .menu a {
+            padding: 14px 20px;
+            text-decoration: none;
+            color: white;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .menu a:hover {
+            background-color: #575757;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: auto;
+            margin: auto;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+            border-color: black;
+        }
+
+        .content {
+			padding: 10px;
+			text-align: center;
+			font-size: 18px;
+			overflow-y: auto;
+		}
+		.footer {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			background-color: #333;
+			color: white;
+			text-align: center;
+			padding: 10px 0;
+			font-size: 14px;
+			box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+		}
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <img src="img/automation.png" alt="Banner Image">
+        <div class="banner-text">
+            Carlos Dias's Portfolio
+        </div>
+    </div>
+    <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="tools.html">Tools</a>
+        <a href="teamup.html">Team Up</a>
+        <a href="aboutme.html">About Me</a>
+    </div>
+
+    <div class="content">
+        <h1>Tools</h1>
+        <hr>
+        <pre>A software list that I use often:</pre>
+        <table>
+            <tr>
+                <td><a href="https://www.autodesk.com/pt" target="_blank">Autodesk Inventor Professional (Student)</a></td>
+            </tr>
+            <tr>
+                <td><a href="https://www.arduino.cc/en/software" target="_blank">Arduino IDE</a></td>
+            </tr>
+            <tr>
+                <td><a href="https://plc247.com/download-cade-simu-v4-pc-simu-v3-software/" target="_blank">CADe SIMU + PC SIMU</a></td>
+            </tr>
+			<tr>
+                <td><a href="https://easyeda.com/" target="_blank">EasyEDA Pro</a></td>
+            </tr>
+			<tr>
+                <td><a href="https://www.python.org/" target="_blank">Python</a></td>
+            </tr>
+			<tr>
+                <td><a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a></td>
+            </tr>
+        </table>
+    </div>
+	<footer class="footer">
+        ©2025 Carlos Dias
+    </footer>
+	<script>
+		document.addEventListener('contextmenu', event => event.preventDefault());
+	</script>
+</body>
+</html>
