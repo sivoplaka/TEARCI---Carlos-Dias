@@ -1,15 +1,15 @@
 #include <Arduino.h>
-// Motores
+//Motores
 const int motorA1 = 3; // B-1A
 const int motorA2 = 4; // B-2A
 const int motorB1 = 5; // A-1A
 const int motorB2 = 6; // A-2A
 
-// Sensor ultrassónico
+//Sensor ultrassónico
 const int trigPin = 7;
 const int echoPin = 8;
 
-// Fins de curso
+//Fins de curso
 const int fimCursoEsquerdo = 9;
 const int fimCursoDireito  = 10;
 
@@ -32,7 +32,7 @@ void loop() {
   long duration;
   int distance;
 
-  // Leitura do sensor
+
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
   digitalWrite(trigPin, HIGH);
@@ -42,7 +42,7 @@ void loop() {
   duration = pulseIn(echoPin, HIGH);
   distance = duration * 0.034 / 2;
 
-  // Leitura dos fins de curso
+  //Leitura dos fins de curso
   bool fimEsq = digitalRead(fimCursoEsquerdo) == HIGH;
   bool fimDir = digitalRead(fimCursoDireito) == HIGH;
 
@@ -53,23 +53,21 @@ void loop() {
   Serial.print(" | Fim Dir: ");
   Serial.println(fimDir);
 
-  // Movimento para a direita (mão próxima)
+  //Mão próxima
   if (distance <= 30 && !fimEsq) {
-    // Ambos giram para a direita
     digitalWrite(motorA1, HIGH);
     digitalWrite(motorA2, LOW);
     digitalWrite(motorB1, HIGH);
     digitalWrite(motorB2, LOW);
   }
-  // Movimento para a esquerda (mão afastada)
+  //Mão afastada
   else if (distance > 30 && distance <= 60 && !fimDir) {
-    // Ambos giram para a esquerda
     digitalWrite(motorA1, LOW);
     digitalWrite(motorA2, HIGH);
     digitalWrite(motorB1, LOW);
     digitalWrite(motorB2, HIGH);
   }
-  // Parar motores
+  //Não deteta obstáculo; Para os motores
   else {
     digitalWrite(motorA1, LOW);
     digitalWrite(motorA2, LOW);
