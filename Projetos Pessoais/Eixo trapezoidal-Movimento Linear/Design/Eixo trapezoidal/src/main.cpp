@@ -31,8 +31,7 @@ void setup() {
 void loop() {
   long duration;
   int distance;
-
-
+  
   digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
   digitalWrite(trigPin, HIGH);
@@ -42,7 +41,6 @@ void loop() {
   duration = pulseIn(echoPin, HIGH);
   distance = duration * 0.034 / 2;
 
-  //Leitura dos fins de curso
   bool fimEsq = digitalRead(fimCursoEsquerdo) == HIGH;
   bool fimDir = digitalRead(fimCursoDireito) == HIGH;
 
@@ -53,21 +51,21 @@ void loop() {
   Serial.print(" | Fim Dir: ");
   Serial.println(fimDir);
 
-  //Mão próxima
-  if (distance <= 30 && !fimEsq) {
+  //Motores rodam para a esquerda
+  if (distance <= 15 && !fimEsq) {
     digitalWrite(motorA1, HIGH);
     digitalWrite(motorA2, LOW);
     digitalWrite(motorB1, HIGH);
     digitalWrite(motorB2, LOW);
   }
-  //Mão afastada
-  else if (distance > 30 && distance <= 60 && !fimDir) {
+  //Motores rodam para a direita
+  else if (distance > 15 && distance <= 30 && !fimDir) {
     digitalWrite(motorA1, LOW);
     digitalWrite(motorA2, HIGH);
     digitalWrite(motorB1, LOW);
     digitalWrite(motorB2, HIGH);
   }
-  //Não deteta obstáculo; Para os motores
+  //Motores parados
   else {
     digitalWrite(motorA1, LOW);
     digitalWrite(motorA2, LOW);
