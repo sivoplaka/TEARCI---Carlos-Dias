@@ -52,14 +52,14 @@ void loop() {
   Serial.println(fimDir);
 
   //Motores rodam para a esquerda
-  if (distance <= 15 && !fimEsq) {
+  if (distance <= 25 && !fimEsq) {
     digitalWrite(motorA1, HIGH);
     digitalWrite(motorA2, LOW);
     digitalWrite(motorB1, HIGH);
     digitalWrite(motorB2, LOW);
   }
   //Motores rodam para a direita
-  else if (distance > 15 && distance <= 30 && !fimDir) {
+  else if (distance > 25 && distance <= 50 && !fimDir) {
     digitalWrite(motorA1, LOW);
     digitalWrite(motorA2, HIGH);
     digitalWrite(motorB1, LOW);
